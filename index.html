@@ -1,24 +1,72 @@
 
+
 <style>
-    li {
-        margin-top: 20px;
+    #links a {
+        margin: 15px;
+        display: block;
     }
 </style>
 
+<div id="links"></div>
+
+<script>
+
+  let listHolder = document.querySelectorAll('#links');
+  listHolder = listHolder[0];
+
+  function createLink(link) {
+    let a = document.createElement('a');
+    let linkText = document.createTextNode(link);
+    a.appendChild(linkText);
+    a.title = link;
+    a.href = link;
+    listHolder.appendChild(a);
+  }
+
+  function createHr(link) {
+    let a = document.createElement('hr');
+    listHolder.appendChild(a);
+  }
+
+  let links = [
+    'wunschliste',
+    'warenkorb',
+    'maenner',
+    'maenner/bekleidung',
+    'maenner/bekleidung/jeans',
+    'about/trend/blue-ocean',
+    'dein-profil',
+    'about/brand/esprit?bi_color=38931,38930,38919,38921',
+    'frauen/schuhe/sandalen?bi_color=38928%2C38933&brand=apple-of-eden-1296&sort=price_high',
+    'frauen/schuhe/halbschuhe?sort=price_low&bi_color=38928%2C38933%2C38924&brand=apple-of-eden-1296',
+    'about/brand/esprit?category=20250&pattern=35008&bi_color=38920',
+    'about/brand/esprit?bi_color=38920&category=20250&pattern=35008&sort=new',
+  ];
+
+  for (var i = 0; i < links.length; i++) {
+    createLink('https://aboutyou.de/' + links[i]);
+    createLink('https://m.aboutyou.de/' + links[i]);
+    createLink('aboutyouapp://' + links[i]);
+    createHr();
+  }
+
+</script>
+
+
+
+
+
+<p>---OLD---</p>
 
 <li><a href="aboutyouapp://">aboutyouapp://</a>
-<li><a href="aboutyouapp://wunschliste">aboutyouapp://wunschliste</a>
-<li><a href="aboutyouapp://warenkorb">aboutyouapp://warenkorb</a>
-<li><a href="aboutyouapp://maenner">aboutyouapp://maenner</a>
-<li><a href="aboutyouapp://maenner/bekleidung">aboutyouapp://maenner/bekleidung</a>
-<li><a href="aboutyouapp://maenner/bekleidung/jeans">aboutyouapp://maenner/bekleidung/jeans</a>
+
+
 <li><a href="aboutyouapp://p/trends/maenner/denim">aboutyouapp://p/trends/maenner/denim</a>
 <li><a href="aboutyouapp://p/samsoe-und-samsoe/hemd-liam-2036862">aboutyouapp://p/samsoe-und-samsoe/hemd-liam-2036862</a>
-<li><a href="aboutyouapp://about/trend/blue-ocean/">aboutyouapp://about/trend/blue-ocean/</a>
+
+
 <li><a href="aboutyouapp://about/trend/blue-ocean/lookbooks/blue-ocean-favoriten">aboutyouapp://about/trend/blue-ocean/lookbooks/blue-ocean-favoriten</a>
-<li><a href="aboutyouapp://dein-profil">aboutyouapp://dein-profil</a>
-<li><a href="aboutyouapp://entdecken">aboutyouapp://entdecken</a>
-<li><a href="aboutyouapp://trend-der-woche">aboutyouapp://trend-der-woche</a>
+
 <li><a href="aboutyouapp://neuigkeiten">aboutyouapp://neuigkeiten</a>
 <li><a href="aboutyouapp://p/tommy-hilfiger/tommy-hilfiger-paar-ohrstecker-classic-signature-2700723-2131621">aboutyouapp://p/tommy-hilfiger/tommy-hilfiger-paar-ohrstecker-classic-signature-2700723-2131621</a>
 <li><a href="aboutyouapp://p/brand/tommy-hilfiger-paar-ohrstecker-classic-signature-2700723-2131621">aboutyouapp://p/brand/tommy-hilfiger-paar-ohrstecker-classic-signature-2700723-2131621</a>
@@ -35,56 +83,3 @@
 <br /><br /><br />
 
 <li><a href="https://aym-integration.collins.kg/frauen/bekleidung/kleider">https://aym-integration.collins.kg/frauen/bekleidung/kleider</a></li>
-
-
-<li>
-    <a href="https://www.aboutyou.de/about/brand/esprit?bi_color=38931,38930,38919,38921">
-        https://www.aboutyou.de/about/brand/esprit?bi_color=38931,38930,38919,38921
-    </a>
-</li>
-<li>
-    <a href="https://www.aboutyou.de/frauen/schuhe/sandalen?bi_color=38928%2C38933&brand=apple-of-eden-1296&sort=price_high">
-        https://www.aboutyou.de/frauen/schuhe/sandalen?bi_color=38928%2C38933&brand=apple-of-eden-1296&sort=price_high
-    </a>
-</li>
-<li>
-    <a href="https://www.aboutyou.de/frauen/schuhe/halbschuhe?sort=price_low&bi_color=38928%2C38933%2C38924&brand=apple-of-eden-1296">
-        https://www.aboutyou.de/frauen/schuhe/halbschuhe?sort=price_low&bi_color=38928%2C38933%2C38924&brand=apple-of-eden-1296
-    </a>
-</li>
-<li>
-    <a href="https://www.aboutyou.de/about/brand/esprit?category=20250&pattern=35008&bi_color=38920">
-        https://www.aboutyou.de/about/brand/esprit?category=20250&pattern=35008&bi_color=38920
-    </a>
-</li>
-<li>
-    <a href="https://www.aboutyou.de/about/brand/esprit?bi_color=38920&category=20250&pattern=35008&sort=new">
-        https://www.aboutyou.de/about/brand/esprit?bi_color=38920&category=20250&pattern=35008&sort=new
-    </a>
-</li>
-
-<li>
-    <a href="aboutyouapp://about/brand/esprit?bi_color=38931,38930,38919,38921">
-        aboutyouapp://about/brand/esprit?bi_color=38931,38930,38919,38921
-    </a>
-</li>
-<li>
-    <a href="aboutyouapp://frauen/schuhe/sandalen?bi_color=38928%2C38933&brand=apple-of-eden-1296&sort=price_high">
-        aboutyouapp://frauen/schuhe/sandalen?bi_color=38928%2C38933&brand=apple-of-eden-1296&sort=price_high
-    </a>
-</li>
-<li>
-    <a href="aboutyouapp://frauen/schuhe/halbschuhe?sort=price_low&bi_color=38928%2C38933%2C38924&brand=apple-of-eden-1296">
-        aboutyouapp://frauen/schuhe/halbschuhe?sort=price_low&bi_color=38928%2C38933%2C38924&brand=apple-of-eden-1296
-    </a>
-</li>
-<li>
-    <a href="aboutyouapp://about/brand/esprit?category=20250&pattern=35008&bi_color=38920">
-        aboutyouapp://about/brand/esprit?category=20250&pattern=35008&bi_color=38920
-    </a>
-</li>
-<li>
-    <a href="aboutyouapp://about/brand/esprit?bi_color=38920&category=20250&pattern=35008&sort=new">
-        aboutyouapp://about/brand/esprit?bi_color=38920&category=20250&pattern=35008&sort=new
-    </a>
-</li>
