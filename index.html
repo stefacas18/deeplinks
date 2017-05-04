@@ -11,12 +11,12 @@
 
 <script>
 
-  let listHolder = document.querySelectorAll('#links');
+  var listHolder = document.querySelectorAll('#links');
   listHolder = listHolder[0];
 
   function createLink(link) {
-    let a = document.createElement('a');
-    let linkText = document.createTextNode(link);
+    var a = document.createElement('a');
+    var linkText = document.createTextNode(link);
     a.appendChild(linkText);
     a.title = link;
     a.href = link;
@@ -24,11 +24,11 @@
   }
 
   function createHr(link) {
-    let a = document.createElement('hr');
+    var a = document.createElement('hr');
     listHolder.appendChild(a);
   }
 
-  let links = [
+  var links = [
     'wunschliste',
     'warenkorb',
     'maenner',
