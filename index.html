@@ -1,26 +1,46 @@
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
     #links a {
         margin: 15px;
         display: block;
     }
+    table {
+      width: 100%;
+    }
+
+    tr:nth-child(even) td {
+      width: 25%;
+    }
+
+    tr:nth-child(odd) td {
+      border-top: 1px solid black;
+      text-align: center;
+    }
 </style>
 
-<div id="links"></div>
+<table>
+  <tbody id="links">
+  </tbody>
+</table>
 
 <script>
 
   var listHolder = document.querySelectorAll('#links');
   listHolder = listHolder[0];
 
-  function createLink(link) {
+  function createLink(tr, link, name) {
     var a = document.createElement('a');
-    var linkText = document.createTextNode(link);
+    var linkText = document.createTextNode(name);
     a.appendChild(linkText);
-    a.title = link;
+    a.title = name;
     a.href = link;
-    listHolder.appendChild(a);
+
+    var td = document.createElement('td');
+    td.appendChild(a);
+    tr.appendChild(td);
+
   }
 
   function createHr(link) {
@@ -44,10 +64,23 @@
   ];
 
   for (var i = 0; i < links.length; i++) {
-    createLink('https://aboutyou.de/' + links[i]);
-    createLink('https://m.aboutyou.de/' + links[i]);
-    createLink('aboutyouapp://' + links[i]);
-    createHr();
+    var tr = document.createElement('tr');
+    var trSep = document.createElement('tr');
+    var tdSep = document.createElement('td');
+    tdSep.colSpan = 4;
+    var text = document.createTextNode(links[i]);
+    tdSep.appendChild(text);
+    trSep.appendChild(tdSep);
+
+    createLink(tr, 'https://aboutyou.de/' + links[i], 'AY');
+    createLink(tr, 'https://m.aboutyou.de/' + links[i], 'AYM');
+    createLink(tr, 'https://app.adjust.com/uhg77c?deep_link=aboutyouapp://' + links[i], 'APP');
+    createLink(tr, 'aboutyouapp://' + links[i], 'ADJUST');
+
+    listHolder.appendChild(trSep);
+    listHolder.appendChild(tr);
+
+    // createHr();
   }
 
 </script>
