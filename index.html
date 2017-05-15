@@ -74,8 +74,8 @@
     trSep.appendChild(tdSep);
 
     for (var j = 0; j < tlds.length; j++) {
-        createLink(tr, 'https://aboutyou.' + tlds[j] + '/' + links[i], 'AY');
-        createLink(tr, 'https://m.aboutyou.' + tlds[j] + '/' + links[i], 'AYM');   
+        createLink(tr, 'https://aboutyou.' + tlds[j] + '/' + links[i], 'AY - ' + tlds[j]);
+        createLink(tr, 'https://m.aboutyou.' + tlds[j] + '/' + links[i], 'AYM - ' + tlds[j]);
     }
     createLink(tr, 'https://app.adjust.com/uhg77c?deep_link=aboutyouapp://' + links[i], 'APP');
     createLink(tr, 'aboutyouapp://' + links[i], 'ADJUST');
