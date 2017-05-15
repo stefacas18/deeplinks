@@ -62,6 +62,7 @@
     'about/brand/esprit?category=20250&pattern=35008&bi_color=38920',
     'about/brand/esprit?bi_color=38920&category=20250&pattern=35008&sort=new',
   ];
+  var tlds = ['de', 'nl'];
 
   for (var i = 0; i < links.length; i++) {
     var tr = document.createElement('tr');
@@ -72,8 +73,10 @@
     tdSep.appendChild(text);
     trSep.appendChild(tdSep);
 
-    createLink(tr, 'https://aboutyou.de/' + links[i], 'AY');
-    createLink(tr, 'https://m.aboutyou.de/' + links[i], 'AYM');
+    for (var j = 0; j < tlds.length; j++) {
+        createLink(tr, 'https://aboutyou.' + tlds[j] + '/' + links[i], 'AY');
+        createLink(tr, 'https://m.aboutyou.' + tlds[j] + '/' + links[i], 'AYM');   
+    }
     createLink(tr, 'https://app.adjust.com/uhg77c?deep_link=aboutyouapp://' + links[i], 'APP');
     createLink(tr, 'aboutyouapp://' + links[i], 'ADJUST');
 
