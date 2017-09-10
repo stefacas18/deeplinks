@@ -7,16 +7,26 @@
         display: block;
     }
     table {
-      width: 100%;
+      max-width: 100vw;
     }
 
     tr:nth-child(even) td {
-      width: 25%;
+      width: 20%;
     }
 
     tr:nth-child(odd) td {
       border-top: 1px solid black;
       text-align: center;
+    }
+
+    .deeplink {
+      max-width: 100vw;
+    }
+
+    .headline {
+      max-width: 100vw;
+      font-weight: bold;
+      color: red;
     }
 </style>
 
@@ -49,29 +59,55 @@
   }
 
   var links = [
+
+    {'headline': 'page'},
     'wunschliste',
     'warenkorb',
+
+    {'headline': 'category'},
     'maenner',
     'maenner/bekleidung',
     'maenner/bekleidung/jeans',
-    'about/trend/blue-ocean',
-    'dein-profil',
-    'p/aldo/leder-slipper-bowwie--3642957',
-    'p/tom-tailor/maxikleid-3644700',
-    'o/franziska_knuppe-all_blue_summer_style-1150?category=234782',
-    'about/brand/esprit?bi_color=38931,38930,38919,38921',
     'frauen/schuhe/sandalen?bi_color=38928%2C38933&brand=apple-of-eden-1296&sort=price_high',
     'frauen/schuhe/halbschuhe?sort=price_low&bi_color=38928%2C38933%2C38924&brand=apple-of-eden-1296',
-    'about/brand/esprit?category=20250&pattern=35008&bi_color=38920',
-    'about/brand/esprit?bi_color=38920&category=20250&pattern=35008&sort=new',
     'frauen/bekleidung/jacken/uebergangsjacken?gclid=CNPstouqrtQCFe4Q0wodV9sAVw&vid=33363755&quick=3587520&product_ID=PLA_3587520&ef_id=WOvszwAAAFlM3jgm:20170608131420:s&gc=CNPstouqrtQCFe4Q0wodV9sAVw',
     'maenner/bekleidung/jeans/straight-leg?gclid=COXSm4aqrtQCFVQaGwodOogCaw&vid=32980131&quick=3522761&product_ID=PLA_3522761&ef_id=WOvszwAAAFlM3jgm:20170608131409:s&gc=COXSm4aqrtQCFVQaGwodOogCaw',
+    '/maenner/bekleidung?size=41169&bi_color=38932&brand=bench-2620&price_min=30&price_max=41',
+
+    {'headline': 'product'},
+    'p/aldo/leder-slipper-bowwie--3642957',
+    'p/tom-tailor/maxikleid-3644700',
+    'p/converse/sneaker-2261789?utm_source=stylight&utm_medium=psm&utm_campaign=stylight&utm_content=stylight_2261789',
+    'p/samsoe-und-samsoe/hemd-mit-button-down-kragen-liambx-8003-3638011?utm_source=Criteo&utm_medium=Retargeting&utm_campaign=crit_wkab-a&utm_term=3638011&utm_content=Mann-Hemden',
     'p/naketano/jacke-3587520?vid=33363755 &product_ID=PLA_3587520&ef_id=WOvszwAAAFlM3jgm:20170608131420:s&gc=CNPstouqrtQCFe4Q0wodV9sAVw',
     'p/jack-und-jones/regular-fit-jeans-clark-3522761?vid=32980131&product_ID=PLA_3522761&ef_id=WOvszwAAAFlM3jgm:20170608131409:s&gc=COXSm4aqrtQCFVQaGwodOogCaw',
     'quick/2261789_?utm_source=stylight&utm_medium=psm&utm_campaign=stylight&utm_content=stylight_2261789',
     'quick/3638011_?utm_source=Criteo&utm_medium=Retargeting&utm_content=Mann-Hemden&utm_campaign=crit_wkab-a&utm_term=3638011',
-    'p/converse/sneaker-2261789?utm_source=stylight&utm_medium=psm&utm_campaign=stylight&utm_content=stylight_2261789',
-    'p/samsoe-und-samsoe/hemd-mit-button-down-kragen-liambx-8003-3638011?utm_source=Criteo&utm_medium=Retargeting&utm_campaign=crit_wkab-a&utm_term=3638011&utm_content=Mann-Hemden'
+
+    {'headline': 'outfit'},
+    'o/franziska_knuppe-all_blue_summer_style-1150?category=234782',
+
+    {'headline': 'brandPage'},
+    'about/brand/esprit?bi_color=38931,38930,38919,38921',
+    'about/brand/esprit?category=20250&pattern=35008&bi_color=38920',
+    'about/brand/esprit?bi_color=38920&category=20250&pattern=35008&sort=new',
+
+    {'headline': 'idol'},
+
+    {'headline': 'story'},
+
+    {'headline': 'other profiles (=> browse)'},
+    'about/trend/blue-ocean',
+
+    {'headline': 'basket (international)'},
+    'winkelmandje',
+    'panier',
+
+    {'headline': 'wishlist (international)'},
+    'verlanglijstje',
+    'mes-preferes'
+
+
   ];
   var tlds = ['de', 'nl'];
 
@@ -80,20 +116,29 @@
     var trSep = document.createElement('tr');
     var tdSep = document.createElement('td');
     tdSep.colSpan = 4;
-    var text = document.createTextNode(links[i]);
+    // var text = document.createTextNode('A');
+    var text = document.createTextNode(links[i].headline ? links[i].headline : '/' + links[i]);
     tdSep.appendChild(text);
+    tdSep.classList.add('deeplink');
     trSep.appendChild(tdSep);
 
-    for (var j = 0; j < tlds.length; j++) {
-        createLink(tr, 'https://aboutyou.' + tlds[j] + '/' + links[i], 'AY - ' + tlds[j]);
-        createLink(tr, 'https://m.aboutyou.' + tlds[j] + '/' + links[i], 'AYM - ' + tlds[j]);
+    if (!links[i].headline) {
+      // for (var j = 0; j < tlds.length; j++) {
+      //     createLink(tr, 'https://aboutyou.' + tlds[j] + '/' + links[i], 'AY - ' + tlds[j]);
+      //     createLink(tr, 'https://m.aboutyou.' + tlds[j] + '/' + links[i], 'AYM - ' + tlds[j]);
+      // }
+
+      createLink(tr, 'https://aboutyou.de' + '/' + links[i], 'AY');
+      createLink(tr, 'https://m.aboutyou.de' + '/' + links[i], 'AYM');
+
+      createLink(tr, 'https://app.adjust.com/uhg77c?deep_link=aboutyouapp://' + links[i], 'ADJUST');
+      createLink(tr, 'aboutyouapp://' + links[i], 'APP');
+    } else {
+      tdSep.classList.add('headline');
     }
-    createLink(tr, 'https://app.adjust.com/uhg77c?deep_link=aboutyouapp://' + links[i], 'ADJUST');
-    createLink(tr, 'aboutyouapp://' + links[i], 'APP');
 
     listHolder.appendChild(trSep);
     listHolder.appendChild(tr);
-
     // createHr();
   }
 
