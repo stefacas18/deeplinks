@@ -60,103 +60,63 @@
 
   var links = [
 
-    {'headline': 'category'},
-    'maenner',
+    {'headline': 'category + filters'},
+    'frauen',
     'maenner/bekleidung',
-    'maenner/bekleidung/jeans',
     'maenner/bekleidung/jeans?sort=price_high',
-    'frauen/bekleidung/kleider/strickkleider?sort=topseller',
-    'frauen/bekleidung/kleider/strickkleider?sort=price_high',
-    'frauen/bekleidung/kleider/strickkleider?sort=price_low',
     'frauen/bekleidung/kleider/strickkleider?sort=new',
-    'frauen/bekleidung?color=12',
-    'frauen?sort=price_high',
-    'frauen/bekleidung/kleider?size=41052',
-    'frauen/bekleidung/kleider?size=41052&color=12',
-    'frauen/bekleidung/kleider?size=41052',
-    'frauen/schuhe/sandalen?bi_color=38928%2C38933&brand=apple-of-eden-1296&sort=price_high',
-    'frauen/schuhe/halbschuhe?sort=price_low&bi_color=38928%2C38933%2C38924&brand=apple-of-eden-1296',
-    'frauen/bekleidung/jacken/uebergangsjacken?gclid=CNPstouqrtQCFe4Q0wodV9sAVw&vid=33363755&quick=3587520&product_ID=PLA_3587520&ef_id=WOvszwAAAFlM3jgm:20170608131420:s&gc=CNPstouqrtQCFe4Q0wodV9sAVw',
-    'maenner/bekleidung/jeans/straight-leg?gclid=COXSm4aqrtQCFVQaGwodOogCaw&vid=32980131&quick=3522761&product_ID=PLA_3522761&ef_id=WOvszwAAAFlM3jgm:20170608131409:s&gc=COXSm4aqrtQCFVQaGwodOogCaw',
+    'frauen/bekleidung?color=12&sort=price_high?size=41052',
     'maenner/bekleidung?size=41169&bi_color=38932&brand=bench-2620&price_min=30&price_max=41',
 
     {'headline': 'product (production)'},
     'p/bench/jersey-kleid-3599494',
     'p/review/kapuzenshirt-3706165',
-    'quick/3650670_?utm_source=stylight&utm_medium=psm&utm_campaign=stylight&utm_content=stylight_2261789',
-    'quick/3706118_?utm_source=Criteo&utm_medium=Retargeting&utm_content=Mann-Hemden&utm_campaign=crit_wkab-a&utm_term=3638011',
-
-    {'headline': 'product (staging)'},
-    'p/melrose/strickkleid-3706299',
-    'p/pepe-jeans/-saturn-straight-fit-jeans-3706160',
-      
-    {'headline': 'product (integration)'},
-    'p/only-play/einfarbige-laufhose-3714692',
-    'p/adidas-performance/funktionsshorts-woven-longshort--3714620',
 
     {'headline': 'outfit (production)'},
     'o/lena_gercke-seaside_feeling_outfit-3553?category=234782',
     'o/xlaeta-out_to_the_city_look-2366?category=234782',
-    'o/franziska_knuppe-all_blue_summer_style-8907?category=234782',
     'o/outfit-inspiration-cyber-spooky-style-7248',
     'o/outfit-inspiration-bloody-style-72502',
     'o/tlnique-hello_fall_look-7247',
-
-    {'headline': 'outfit (staging)'},
-    'o/johanna_klum-wedding_guest_look-5327?category=234782',
-    'o/matiamu_by_sofia-casual_business_outfit-210',
-
-    {'headline': 'brandPage'},
-    'about/brand/adidas-originals',
-    'about/brand/only',
-    'about/brand/esprit?bi_color=38931,38930,38919,38921',
-    'about/brand/esprit?category=20250&pattern=35008&bi_color=38920',
-    'about/brand/levi-s?category=20258',
-    'about/brand/esprit?category=20258',
-    'about/brand/levi-s?bi_color=38935',
-    'about/brand/esprit?bi_color=38935',
-    'about/brand/levi-s?size=41157',
-    'about/brand/esprit?size=41157',
-    'about/brand/levi-s?price_max=28',
-    'about/brand/esprit?price_max=28',
-    'about/brand/esprit?bi_color=38920&category=20250&pattern=35008&sort=new',
     
+    {'headline': 'not working outfit - 404 outfits (production)'},
+    'o/franziska_knuppe-all_blue_summer_style-8907?category=234782',
 
-    {'headline': 'idol (production)'},
-    'about/star/caro-daur',
-    'about/star/eva-padberg',
+    {'headline': 'brandPage + filters'},
+    'about/brand/adidas-originals',
+    'about/brand/levi-s',
+    'about/brand/esprit?bi_color=38931,38930,38919,38921',
+    'about/brand/esprit?category=20258&pattern=35008&bi_color=38920&size=41157&price_max=158&sort=price_high',
+    'about/brand/adidas-originals?bi_color=38920&category=20250&pattern=35008&sort=new',
 
     {'headline': 'stories (production)'},
     's/leger-by-lena-gercke-458',
     's/assajsa-123',
 
-      
-    {'headline': 'idol (staging)'},
-    'about/star/stefanie-giesinger/outfits',
-    'about/star/caro-daur',
-
-    {'headline': 'story'},
-
-    {'headline': 'other profiles (=> browse)'},
-    'about/trend/blue-ocean',
-
-    {'headline': 'page'},
+    {'headline': 'pages'},
+    'home',
     'wunschliste',
     'warenkorb',
+    'browse',
+    'browse/outfits',
+    'browse/stories',
       
-    {'headline': 'basket (international)'},
+    {'headline': 'pages (international)'},
     'winkelmandje',
     'panier',
-
-    {'headline': 'wishlist (international)'},
     'verlanglijstje',
     'mes-preferes',
       
-    {'headline': 'sould out products'},
+    {'headline': 'sold out products'},
     'p/brand/product-3616754',
     'p/brand/product-3521648',
     'p/brand/product-3291776'
-
+     
+    {'headline': 'OM - links'},
+    'frauen/bekleidung/jacken/uebergangsjacken?gclid=CNPstouqrtQCFe4Q0wodV9sAVw&vid=33363755&quick=3587520&product_ID=PLA_3587520&ef_id=WOvszwAAAFlM3jgm:20170608131420:s&gc=CNPstouqrtQCFe4Q0wodV9sAVw',
+    'maenner/bekleidung/jeans/straight-leg?gclid=COXSm4aqrtQCFVQaGwodOogCaw&vid=32980131&quick=3522761&product_ID=PLA_3522761&ef_id=WOvszwAAAFlM3jgm:20170608131409:s&gc=COXSm4aqrtQCFVQaGwodOogCaw',
+    'quick/3650670_?utm_source=stylight&utm_medium=psm&utm_campaign=stylight&utm_content=stylight_2261789',
+    'quick/3706118_?utm_source=Criteo&utm_medium=Retargeting&utm_content=Mann-Hemden&utm_campaign=crit_wkab-a&utm_term=3638011',
 
   ];
   var tlds = ['de', 'nl'];
