@@ -1,4 +1,3 @@
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
@@ -6,196 +5,197 @@
         margin: 15px;
         display: block;
     }
+
     table {
-      max-width: 100vw;
+        max-width: 100vw;
     }
 
     tr:nth-child(even) td {
-      width: 20%;
+        width: 20%;
     }
 
     tr:nth-child(odd) td {
-      border-top: 1px solid black;
-      text-align: center;
+        border-top: 1px solid black;
+        text-align: center;
     }
 
     .deeplink {
-      max-width: 100vw;
+        max-width: 100vw;
     }
 
     .headline {
-      max-width: 100vw;
-      font-weight: bold;
-      color: red;
+        max-width: 100vw;
+        font-weight: bold;
+        color: red;
     }
 </style>
 
 <table>
-  <tbody id="links">
-  </tbody>
+    <tbody id="links">
+    </tbody>
 </table>
 
 <script>
 
-  var listHolder = document.querySelectorAll('#links');
-  listHolder = listHolder[0];
+    var listHolder = document.querySelectorAll('#links');
+    listHolder = listHolder[0];
 
-  function createLink(tr, link, name) {
-    var a = document.createElement('a');
-    var linkText = document.createTextNode(name);
-    a.appendChild(linkText);
-    a.title = name;
-    a.href = link;
+    function createLink(tr, link, name) {
+        var a = document.createElement('a');
+        var linkText = document.createTextNode(name);
+        a.appendChild(linkText);
+        a.title = name;
+        a.href = link;
 
-    var td = document.createElement('td');
-    td.appendChild(a);
-    tr.appendChild(td);
+        var td = document.createElement('td');
+        td.appendChild(a);
+        tr.appendChild(td);
 
-  }
-
-  function createHr(link) {
-    var a = document.createElement('hr');
-    listHolder.appendChild(a);
-  }
-
-  var links = [
-
-    {'headline': 'category + filters'},
-    'frauen',
-    'maenner/bekleidung',
-    'maenner/bekleidung/jeans?sort=price_high',
-    'frauen/bekleidung/kleider/strickkleider?sort=new',
-    'frauen/bekleidung?color=12&sort=price_high&size=41052',
-    'maenner/bekleidung?size=41169&bi_color=38932&brand=bench-2620&price_min=30&price_max=41',
-      
-    {'headline': 'category + filters (international)'},
-    'kobiety',
-    'mezczyzni/odziez',
-    'mezczyzni/ubrania/jeansy?sort=price_high',
-    'kobiety/odziez/kurtki/parki?sort=new',
-
-    {'headline': 'product (production)'},
-    'p/bench/jersey-kleid-3599494',
-    'p/review/kapuzenshirt-3706165',
-    'p/edited-the-label/mom-jeans-moa--3657566',
-    'p/edited-the-label/mom-jeans-moa--3657566?utm_',
-    'p/edited-the-label/mom-jeans-moa--3657566?firstImage=bust',
-    'p/edited-the-label/mom-jeans-moa--3657566?firstImage=model',
-      
-    {'headline': 'kids product (production)'},
-    'p/jill-und-mitch/-mk-sw-bomber-brave-sweatjacke-3850935',
-    'p/name-it/weste-nmfmylane--3956300',
-    'p/noppies/sweathose-b-pants-sweat-holliston--3681559',
-
-    {'headline': 'outfit (production)'},
-    'o/lena_gercke-seaside_feeling_outfit-3553?category=234782',
-    'o/xlaeta-out_to_the_city_look-2366?category=234782',
-    'o/outfit-inspiration-cyber-spooky-style-7248',
-    'o/tlnique-hello_fall_look-7247',
-    
-    {'headline': 'not working outfit - 404 outfits (production)'},
-    'o/franziska_knuppe-all_blue_summer_style-8907?category=234782',
-    'o/outfit-inspiration-bloody-style-72502',
-
-    {'headline': 'brandPage + filters'},
-    'about/brand/adidas-originals',
-    'about/brand/noppies',
-    'about/brand/s-oliver-junior',
-    'about/brand/lego-wear/',
-    'about/brand/petit-bateau',
-    'about/brand/esprit?bi_color=38931,38930,38919,38921',
-
-    {'headline': 'not working brandPage + filters'},
-     'about/brand/levi-s',
-     'about/brand/levi-s?size=41157',
-     'about/brand/please?category=101144&price_max=158&sort=price_high',
-     'about/brand/naketano?category=22822&sort=new',
-      
-    {'headline': 'stories (production)'},
-    's/leger-by-lena-gercke-458',
-    's/assajsa-123',
-    'about/star/lena-gercke',
-
-    {'headline': 'pages'},
-    'appstart',
-    'wunschliste',
-    'warenkorb',
-    'browse',
-    'browse/outfits',
-    'browse/stories',
-    'gutscheinbedingungen',
-      
-    {'headline': 'pages (international)'},
-    'winkelmandje',
-    'panier',
-    'verlanglijstje',
-    'kosik',
-    'koszyk',
-    'lista-zyczen',
-    'warunki-korzystania-z-kuponu',
-    'liste-d-envies',
-    'merk',
-    'marque',
-    'znacka',
-    'marka',
-
-    {'headline': 'pages (CZ)'},
-    'zeny',
-    'muzi',
-      
-      
-    {'headline': 'sold out products'},
-    'p/brand/product-3616754',
-    'p/brand/product-3521648',
-    'p/brand/product-3291776',
-      
-    {'headline': 'checkout error && checkout stuff (APP)'},
-    'checkout/error/makunahatata',
-    'order/27017460',
-    'orders',
-      
-    {'headline': 'voucher'},
-    '?vc_title=VoucherTest&vc_enddate=31-03-2018%2023:59:59&vc_code=VOUCHER&vc_token=aa5212d8efd507a00d2f7722880d1c93&vc_timer=true',
-     
-    {'headline': 'OM - links'},
-    'frauen/bekleidung/jacken/uebergangsjacken?gclid=CNPstouqrtQCFe4Q0wodV9sAVw&vid=33363755&quick=3587520&product_ID=PLA_3587520&ef_id=WOvszwAAAFlM3jgm:20170608131420:s&gc=CNPstouqrtQCFe4Q0wodV9sAVw',
-    'maenner/bekleidung/jeans/straight-leg?gclid=COXSm4aqrtQCFVQaGwodOogCaw&vid=32980131&quick=3522761&product_ID=PLA_3522761&ef_id=WOvszwAAAFlM3jgm:20170608131409:s&gc=COXSm4aqrtQCFVQaGwodOogCaw',
-    'quick/3650670_?utm_source=stylight&utm_medium=psm&utm_campaign=stylight&utm_content=stylight_2261789',
-    'quick/3706118_?utm_source=Criteo&utm_medium=Retargeting&utm_content=Mann-Hemden&utm_campaign=crit_wkab-a&utm_term=3638011',
-
-  ];
-  var tlds = ['de', 'nl'];
-
-  for (var i = 0; i < links.length; i++) {
-    var tr = document.createElement('tr');
-    var trSep = document.createElement('tr');
-    var tdSep = document.createElement('td');
-    tdSep.colSpan = 4;
-    // var text = document.createTextNode('A');
-    var text = document.createTextNode(links[i].headline ? links[i].headline : '/' + links[i]);
-    tdSep.appendChild(text);
-    tdSep.classList.add('deeplink');
-    trSep.appendChild(tdSep);
-
-    if (!links[i].headline) {
-      // for (var j = 0; j < tlds.length; j++) {
-      //     createLink(tr, 'https://aboutyou.' + tlds[j] + '/' + links[i], 'AY - ' + tlds[j]);
-      //     createLink(tr, 'https://m.aboutyou.' + tlds[j] + '/' + links[i], 'AYM - ' + tlds[j]);
-      // }
-
-      createLink(tr, 'https://aboutyou.de' + '/' + links[i], 'AY');
-      createLink(tr, 'https://m.aboutyou.de' + '/' + links[i], 'AYM');
-
-      createLink(tr, 'https://app.adjust.com/uhg77c?deep_link=aboutyouapp://' + links[i], 'ADJUST');
-      createLink(tr, 'aboutyouapp://' + links[i], 'APP');
-    } else {
-      tdSep.classList.add('headline');
     }
 
-    listHolder.appendChild(trSep);
-    listHolder.appendChild(tr);
-    // createHr();
-  }
+    function createHr(link) {
+        var a = document.createElement('hr');
+        listHolder.appendChild(a);
+    }
+
+    var links = [
+
+        { 'headline': 'category + filters' },
+        'frauen',
+        'maenner/bekleidung',
+        'maenner/bekleidung/jeans?sort=price_high',
+        'frauen/bekleidung/kleider/strickkleider?sort=new',
+        'frauen/bekleidung?color=12&sort=price_high&size=41052',
+        'maenner/bekleidung?size=41169&bi_color=38932&brand=bench-2620&price_min=30&price_max=41',
+
+        { 'headline': 'category + filters (international)' },
+        'kobiety',
+        'mezczyzni/odziez',
+        'mezczyzni/ubrania/jeansy?sort=price_high',
+        'kobiety/odziez/kurtki/parki?sort=new',
+
+        { 'headline': 'product (production)' },
+        'p/bench/jersey-kleid-3599494',
+        'p/review/kapuzenshirt-3706165',
+        'p/edited-the-label/mom-jeans-moa--3657566',
+        'p/edited-the-label/mom-jeans-moa--3657566?utm_',
+        'p/edited-the-label/mom-jeans-moa--3657566?firstImage=bust',
+        'p/edited-the-label/mom-jeans-moa--3657566?firstImage=model',
+
+        { 'headline': 'kids product (production)' },
+        'p/jill-und-mitch/-mk-sw-bomber-brave-sweatjacke-3850935',
+        'p/name-it/weste-nmfmylane--3956300',
+        'p/noppies/sweathose-b-pants-sweat-holliston--3681559',
+
+        { 'headline': 'outfit (production)' },
+        'o/lena_gercke-seaside_feeling_outfit-3553?category=234782',
+        'o/xlaeta-out_to_the_city_look-2366?category=234782',
+        'o/outfit-inspiration-cyber-spooky-style-7248',
+        'o/tlnique-hello_fall_look-7247',
+
+        { 'headline': 'not working outfit - 404 outfits (production)' },
+        'o/franziska_knuppe-all_blue_summer_style-8907?category=234782',
+        'o/outfit-inspiration-bloody-style-72502',
+
+        { 'headline': 'brandPage + filters' },
+        'about/brand/adidas-originals',
+        'about/brand/noppies',
+        'about/brand/s-oliver-junior',
+        'about/brand/lego-wear/',
+        'about/brand/petit-bateau',
+        'about/brand/esprit?bi_color=38931,38930,38919,38921',
+
+        { 'headline': 'not working brandPage + filters' },
+        'about/brand/levi-s',
+        'about/brand/levi-s?size=41157',
+        'about/brand/please?category=101144&price_max=158&sort=price_high',
+        'about/brand/naketano?category=22822&sort=new',
+
+        { 'headline': 'stories (production)' },
+        's/leger-by-lena-gercke-458',
+        's/assajsa-123',
+        'about/star/lena-gercke',
+
+        { 'headline': 'pages' },
+        'appstart',
+        'wunschliste',
+        'warenkorb',
+        'browse',
+        'browse/outfits',
+        'browse/stories',
+        'gutscheinbedingungen',
+
+        { 'headline': 'pages (international)' },
+        'winkelmandje',
+        'panier',
+        'verlanglijstje',
+        'kosik',
+        'koszyk',
+        'lista-zyczen',
+        'warunki-korzystania-z-kuponu',
+        'liste-d-envies',
+        'merk',
+        'marque',
+        'znacka',
+        'marka',
+
+        { 'headline': 'pages (CZ)' },
+        'zeny',
+        'muzi',
+
+
+        { 'headline': 'sold out products' },
+        'p/brand/product-3616754',
+        'p/brand/product-3521648',
+        'p/brand/product-3291776',
+
+        { 'headline': 'checkout error && checkout stuff (APP)' },
+        'checkout/error/makunahatata',
+        'order/27017460',
+        'orders',
+
+        { 'headline': 'voucher' },
+        '?vc_title=VoucherTest&vc_enddate=31-03-2018%2023:59:59&vc_code=VOUCHER&vc_token=aa5212d8efd507a00d2f7722880d1c93&vc_timer=true',
+
+        { 'headline': 'OM - links' },
+        'frauen/bekleidung/jacken/uebergangsjacken?gclid=CNPstouqrtQCFe4Q0wodV9sAVw&vid=33363755&quick=3587520&product_ID=PLA_3587520&ef_id=WOvszwAAAFlM3jgm:20170608131420:s&gc=CNPstouqrtQCFe4Q0wodV9sAVw',
+        'maenner/bekleidung/jeans/straight-leg?gclid=COXSm4aqrtQCFVQaGwodOogCaw&vid=32980131&quick=3522761&product_ID=PLA_3522761&ef_id=WOvszwAAAFlM3jgm:20170608131409:s&gc=COXSm4aqrtQCFVQaGwodOogCaw',
+        'quick/3650670_?utm_source=stylight&utm_medium=psm&utm_campaign=stylight&utm_content=stylight_2261789',
+        'quick/3706118_?utm_source=Criteo&utm_medium=Retargeting&utm_content=Mann-Hemden&utm_campaign=crit_wkab-a&utm_term=3638011',
+
+    ];
+    var tlds = ['de', 'nl'];
+
+    for (var i = 0; i < links.length; i++) {
+        var tr = document.createElement('tr');
+        var trSep = document.createElement('tr');
+        var tdSep = document.createElement('td');
+        tdSep.colSpan = 4;
+        // var text = document.createTextNode('A');
+        var text = document.createTextNode(links[i].headline ? links[i].headline : '/' + links[i]);
+        tdSep.appendChild(text);
+        tdSep.classList.add('deeplink');
+        trSep.appendChild(tdSep);
+
+        if (!links[i].headline) {
+            // for (var j = 0; j < tlds.length; j++) {
+            //     createLink(tr, 'https://aboutyou.' + tlds[j] + '/' + links[i], 'AY - ' + tlds[j]);
+            //     createLink(tr, 'https://m.aboutyou.' + tlds[j] + '/' + links[i], 'AYM - ' + tlds[j]);
+            // }
+
+            createLink(tr, 'https://aboutyou.de' + '/' + links[i], 'AY');
+            createLink(tr, 'https://m.aboutyou.de' + '/' + links[i], 'AYM');
+
+            createLink(tr, 'https://app.adjust.com/uhg77c?deep_link=aboutyouapp://' + links[i], 'ADJUST');
+            createLink(tr, 'aboutyouapp://' + links[i], 'APP');
+        } else {
+            tdSep.classList.add('headline');
+        }
+
+        listHolder.appendChild(trSep);
+        listHolder.appendChild(tr);
+        // createHr();
+    }
 
 </script>
 
@@ -208,30 +208,33 @@
 <br />
 
 <li>
-    <a href="https://partners.webmasterplan.com/click.asp?ref=651&site=13142&ent=55&type=b21&bnb=21&subid=app_test_67890">app_test_67890 </a>
+    <a href="https://partners.webmasterplan.com/click.asp?ref=651&site=13142&ent=55&type=b21&bnb=21&subid=app_test_67890">app_test_67890
+    </a>
 </li>
 <br />
 
 <li>
-    <a href="https://partners.webmasterplan.com/click.asp?ref=651&site=13142&ent=55&type=b21&bnb=21&subid=app_test_09876">app_test_09876 </a>
+    <a href="https://partners.webmasterplan.com/click.asp?ref=651&site=13142&ent=55&type=b21&bnb=21&subid=app_test_09876">app_test_09876
+    </a>
 </li>
 <br />
 
 <li>
-    <a href="https://partners.webmasterplan.com/click.asp?ref=651&site=13142&ent=55&type=b21&bnb=21&subid=app_test_54321">app_test_54321 </a>
+    <a href="https://partners.webmasterplan.com/click.asp?ref=651&site=13142&ent=55&type=b21&bnb=21&subid=app_test_54321">app_test_54321
+    </a>
 </li>
 <br />
 
 <li>
     <a href="https://partners.webmasterplan.com/click.asp?ref=651&site=13142&ent=74&type=b21&bnb=21&subid=app_install_test_12345">
-    <img src="http://i0.kym-cdn.com/entries/icons/mobile/000/013/564/doge.jpg" />
+        <img src="http://i0.kym-cdn.com/entries/icons/mobile/000/013/564/doge.jpg" />
     </a>
 </li>
 <br />
 
 <li>
     <a href="https://mwpu.adj.st/appstart/?adjust_campaign=492328&adjust_adgroup=[user.cardnumber]-[pb_camp_ext]|[pb_camp_int]|[category]&adjust_creative=1-21&adjust_t=qthfb5&adjust_deeplink=aboutyouapp%3A%2F%2Fappstart&adjust_affilinet_ref=492328-[user.cardnumber]-[pb_camp_ext]|[pb_camp_int]|[category]&adjust_affilinet_media_number=21&adjust_affilinet_media_type=1">
-    <img src="http://doge2048.com/meta/doge-600.png" />
+        <img src="http://doge2048.com/meta/doge-600.png" />
     </a>
 </li>
 <br />
@@ -325,12 +328,14 @@
 <p>---ANDROID---</p>
 
 <li>
-    <a href="https://app.adjust.com/qthfb5?deeplink=aboutyouapp://">https://app.adjust.com/qthfb5?deeplink=aboutyouapp:// - should not work</a>
+    <a href="https://app.adjust.com/qthfb5?deeplink=aboutyouapp://">https://app.adjust.com/qthfb5?deeplink=aboutyouapp://
+        - should not work</a>
 </li>
 <br />
 
 <li>
-    <a href="https://app.adjust.com/qthfb5?deeplink=aboutyouapp://appstart">https://app.adjust.com/qthfb5?deeplink=aboutyouapp://appstart - should work</a>
+    <a href="https://app.adjust.com/qthfb5?deeplink=aboutyouapp://appstart">https://app.adjust.com/qthfb5?deeplink=aboutyouapp://appstart
+        - should work</a>
 </li>
 <br />
 
@@ -374,17 +379,20 @@
 <p>---GZ - Bouncer : SEA Filter (ADP)---</p>
 
 <li>
-    <a href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwiRlLqOi9DZAhXBt-0KHX1vAKoYABBIGgJkZw&ae=1&ohost=www.google.de&cid=CAASE-RoonfXE2N3gWXhFXKtC2YQhcg&sig=AOD64_3QXAv1TRZXBGy0VMRW32TeiwFtBQ&ctype=5&q=&ved=0ahUKEwi4xauOi9DZAhXLL1AKHfLPC0kQwg8IigE&adurl=http://clickserve.dartsearch.net/link/click%3F%26%26ds_e_adid%3D246229042972%26ds_e_matchtype%3Dsearch%26ds_e_device%3Dm%26ds_e_network%3Dg%26ds_e_product_group_id%3D402600130481%26ds_e_product_id%3D6361640%26ds_e_product_merchant_id%3D100528769%26ds_e_product_country%3DDE%26ds_e_product_language%3Dde%26ds_e_product_channel%3Donline%26ds_e_product_store_id%3D%7Bproduct_store_id%7D%26ds_url_v%3D2%26ds_dest_url%3Dhttps://www.aboutyou.de/p/nudie-jeans-co/jeans-skinny-lin-444877%3Fvid%3D6361640%26om_channel%3DPLA%26product_ID%3DPLA_444877%26variant_ID%3DPLA_6361640%26gclid%3DEAIaIQobChMIkZS6jovQ2QIVwbftCh19bwCqEAQYGiABEgL94fD_BwE">GOOGLE LINK: ADP Nudie Jeans ADP Herren</a>
+    <a href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwiRlLqOi9DZAhXBt-0KHX1vAKoYABBIGgJkZw&ae=1&ohost=www.google.de&cid=CAASE-RoonfXE2N3gWXhFXKtC2YQhcg&sig=AOD64_3QXAv1TRZXBGy0VMRW32TeiwFtBQ&ctype=5&q=&ved=0ahUKEwi4xauOi9DZAhXLL1AKHfLPC0kQwg8IigE&adurl=http://clickserve.dartsearch.net/link/click%3F%26%26ds_e_adid%3D246229042972%26ds_e_matchtype%3Dsearch%26ds_e_device%3Dm%26ds_e_network%3Dg%26ds_e_product_group_id%3D402600130481%26ds_e_product_id%3D6361640%26ds_e_product_merchant_id%3D100528769%26ds_e_product_country%3DDE%26ds_e_product_language%3Dde%26ds_e_product_channel%3Donline%26ds_e_product_store_id%3D%7Bproduct_store_id%7D%26ds_url_v%3D2%26ds_dest_url%3Dhttps://www.aboutyou.de/p/nudie-jeans-co/jeans-skinny-lin-444877%3Fvid%3D6361640%26om_channel%3DPLA%26product_ID%3DPLA_444877%26variant_ID%3DPLA_6361640%26gclid%3DEAIaIQobChMIkZS6jovQ2QIVwbftCh19bwCqEAQYGiABEgL94fD_BwE">GOOGLE
+        LINK: ADP Nudie Jeans ADP Herren</a>
 </li>
 <br />
 
 <li>
-    <a href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwjm4oayi9DZAhXvvO0KHXIHCs0YABAQGgJkZw&ae=1&ohost=www.google.de&cid=CAASE-RoS8ldS1SBAzgqh1PxH_7pftA&sig=AOD64_1fKllLfAizF6VFnH7-jbtmmECfEw&ctype=5&q=&ved=0ahUKEwi74IGyi9DZAhUKLlAKHW-pAEoQwg8IPA&adurl=http://clickserve.dartsearch.net/link/click%3F%26%26ds_e_adid%3D246229044475%26ds_e_matchtype%3Dsearch%26ds_e_device%3Dm%26ds_e_network%3Dg%26ds_e_product_group_id%3D403179137218%26ds_e_product_id%3D34203256%26ds_e_product_merchant_id%3D100528769%26ds_e_product_country%3DDE%26ds_e_product_language%3Dde%26ds_e_product_channel%3Donline%26ds_e_product_store_id%3D%7Bproduct_store_id%7D%26ds_url_v%3D2%26ds_dest_url%3Dhttps://www.aboutyou.de/p/naketano/wintermantel-pflaeumchen-ii-3737260%3Fvid%3D34203256%26om_channel%3DPLA%26product_ID%3DPLA_3737260%26variant_ID%3DPLA_34203256%26gclid%3DEAIaIQobChMI5uKGsovQ2QIV77ztCh1yBwrNEAQYBiABEgJ3PvD_BwE">GOGGLE LINK: ADP Naketano Winterjacke ADP Damen</a>
+    <a href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwjm4oayi9DZAhXvvO0KHXIHCs0YABAQGgJkZw&ae=1&ohost=www.google.de&cid=CAASE-RoS8ldS1SBAzgqh1PxH_7pftA&sig=AOD64_1fKllLfAizF6VFnH7-jbtmmECfEw&ctype=5&q=&ved=0ahUKEwi74IGyi9DZAhUKLlAKHW-pAEoQwg8IPA&adurl=http://clickserve.dartsearch.net/link/click%3F%26%26ds_e_adid%3D246229044475%26ds_e_matchtype%3Dsearch%26ds_e_device%3Dm%26ds_e_network%3Dg%26ds_e_product_group_id%3D403179137218%26ds_e_product_id%3D34203256%26ds_e_product_merchant_id%3D100528769%26ds_e_product_country%3DDE%26ds_e_product_language%3Dde%26ds_e_product_channel%3Donline%26ds_e_product_store_id%3D%7Bproduct_store_id%7D%26ds_url_v%3D2%26ds_dest_url%3Dhttps://www.aboutyou.de/p/naketano/wintermantel-pflaeumchen-ii-3737260%3Fvid%3D34203256%26om_channel%3DPLA%26product_ID%3DPLA_3737260%26variant_ID%3DPLA_34203256%26gclid%3DEAIaIQobChMI5uKGsovQ2QIV77ztCh1yBwrNEAQYBiABEgJ3PvD_BwE">GOGGLE
+        LINK: ADP Naketano Winterjacke ADP Damen</a>
 </li>
 <br />
 
 <li>
-    <a href="https://www.google.ch/aclk?sa=l&ai=DChcSEwjwp7XM4M3ZAhWFOBsKHeKkCU4YABABGgJ3bA&sig=AOD64_04f3ucg_uMZFH-79QlF3g6q4wJzw&ctype=5&q=&ved=0ahUKEwiE4rLM4M3ZAhXOCOwKHdUcDCYQsEMIJw&adurl=">GOGGLE LINK: fr_CH ADP naketano pulli</a>
+    <a href="https://www.google.ch/aclk?sa=l&ai=DChcSEwjwp7XM4M3ZAhWFOBsKHeKkCU4YABABGgJ3bA&sig=AOD64_04f3ucg_uMZFH-79QlF3g6q4wJzw&ctype=5&q=&ved=0ahUKEwiE4rLM4M3ZAhXOCOwKHdUcDCYQsEMIJw&adurl=">GOGGLE
+        LINK: fr_CH ADP naketano pulli</a>
 </li>
 <br />
 
@@ -396,19 +404,22 @@
 <p>---Voucher---</p>
 
 <li>
-    <a href="https://m.aboutyou-integration.de?vc_title=VoucherTest&vc_enddate=31-03-2018%2023:59:59&vc_code=VOUCHER&vc_token=aa5212d8efd507a00d2f7722880d1c93&vc_timer=true">Voucher Integration Env.</a>
+    <a href="https://m.aboutyou-integration.de?vc_title=VoucherTest&vc_enddate=31-03-2018%2023:59:59&vc_code=VOUCHER&vc_token=aa5212d8efd507a00d2f7722880d1c93&vc_timer=true">Voucher
+        Integration Env.</a>
 </li>
 <br />
 
 <p>---APP-1565 OM: Implement Affilinet reattribution logic in Adjust---</p>
 
 <li>
-    <a href="https://app.adjust.com/qthfb5?campaign=461799&adgroup=sparwelt-customer-123&creative=2-42&deeplink=aboutyouapp%3A%2f%2f&affilinet_ref=461799-sparwelt-customer-123&affilinet_media_number=42&affilinet_media_type=2e">Affiliate Testlink 1</a>
+    <a href="https://app.adjust.com/qthfb5?campaign=461799&adgroup=sparwelt-customer-123&creative=2-42&deeplink=aboutyouapp%3A%2f%2f&affilinet_ref=461799-sparwelt-customer-123&affilinet_media_number=42&affilinet_media_type=2e">Affiliate
+        Testlink 1</a>
 </li>
 <br />
 
 <li>
-    <a href="https://mwpu.adj.st/appstart/?adjust_campaign=492328-test&adjust_adgroup=test&adjust_creative=test&adjust_t=qthfb5&adjust_deeplink=aboutyouapp%3A%2F%2Fappstart&adjust_affilinet_ref=492328-test&adjust_affilinet_media_number=21&adjust_affilinet_media_type=1">Affiliate Testlink 2</a>
+    <a href="https://mwpu.adj.st/appstart/?adjust_campaign=492328-test&adjust_adgroup=test&adjust_creative=test&adjust_t=qthfb5&adjust_deeplink=aboutyouapp%3A%2F%2Fappstart&adjust_affilinet_ref=492328-test&adjust_affilinet_media_number=21&adjust_affilinet_media_type=1">Affiliate
+        Testlink 2</a>
 </li>
 <br />
 
@@ -417,11 +428,15 @@
 <br />
 <br />
 <h3> WEB </h3>
-<li><a href="https://m.aboutyou-staging.de/p/g-star-raw/maxikleid-gs-singlet--3857991?forcedABCampaign=Variant">3857991 V</a></li>
-<li><a href="https://m.aboutyou-staging.de/p/g-star-raw/maxikleid-gs-singlet--3857991?forcedABCampaign=Control">3857991 C</a></li>
+<li><a href="https://m.aboutyou-staging.de/p/g-star-raw/maxikleid-gs-singlet--3857991?forcedABCampaign=Variant">3857991
+        V</a></li>
+<li><a href="https://m.aboutyou-staging.de/p/g-star-raw/maxikleid-gs-singlet--3857991?forcedABCampaign=Control">3857991
+        C</a></li>
 <br />
-<li><a href="https://m.aboutyou-staging.de/p/clarks/schnuerschuh-atticus-lace--3851588?forcedABCampaign=Variant">3851588 V</a></li>
-<li><a href="https://m.aboutyou-staging.de/p/clarks/schnuerschuh-atticus-lace--3851588?forcedABCampaign=Control">3851588 C</a></li>
+<li><a href="https://m.aboutyou-staging.de/p/clarks/schnuerschuh-atticus-lace--3851588?forcedABCampaign=Variant">3851588
+        V</a></li>
+<li><a href="https://m.aboutyou-staging.de/p/clarks/schnuerschuh-atticus-lace--3851588?forcedABCampaign=Control">3851588
+        C</a></li>
 <br />
 <li><a href="https://m.aboutyou-staging.de/p/only/strickpullover-geena--3857720?forcedABCampaign=Variant">3857720 V</a></li>
 <li><a href="https://m.aboutyou-staging.de/p/only/strickpullover-geena--3857720?forcedABCampaign=Control">3857720 C</a></li>
@@ -430,7 +445,8 @@
 <br />
 <br />
 <h3> Newsletter </h3>
-<li><a href="https://m.aboutyou.de/p/calvin-klein-jeans/windbreaker-ooster-hd-anorak-3795557?utm_source=newsletter&utm_medium=email&utm_campaign=20180327_PowerPlayers_M_DE&utm_content=12"> Newsletter </a></li>
+<li><a href="https://m.aboutyou.de/p/calvin-klein-jeans/windbreaker-ooster-hd-anorak-3795557?utm_source=newsletter&utm_medium=email&utm_campaign=20180327_PowerPlayers_M_DE&utm_content=12">
+        Newsletter </a></li>
 <br />
 <br />
 <h3> A/B Quick View </h3>
@@ -440,18 +456,27 @@
 <br />
 <br />
 <h3> OMS STAGING </h3>
-<li><a href="https://m-next.aboutyou-staging.de/frauen/bekleidung/jacken/uebergangsjacken?gclid=CNPstouqrtQCFe4Q0wodV9sAVw&vid=33363755&quick=3587520&product_ID=PLA_3587520&ef_id=WOvszwAAAFlM3jgm:20170608131420:s&gc=CNPstouqrtQCFe4Q0wodV9sAVw"> PLA 1 </a></li>
-<li><a href="https://m-next.aboutyou-staging.de/maenner/bekleidung/jeans/straight-leg?gclid=COXSm4aqrtQCFVQaGwodOogCaw&vid=32980131&quick=3522761&product_ID=PLA_3522761&ef_id=WOvszwAAAFlM3jgm:20170608131409:s&gc=COXSm4aqrtQCFVQaGwodOogCaw"> PLA 2 </a></li>
-<li><a href="https://m-next.aboutyou-staging.de/frauen/bekleidung?color=12&sort=price_high&size=41052"> color on category 1 </a></li>
-<li><a href="https://m-next.aboutyou-staging.de/maenner/bekleidung?size=41169&bi_color=38932&brand=bench-2620&price_min=30&price_max=41"> color on category 1 </a></li>
+<li><a href="https://m-next.aboutyou-staging.de/frauen/bekleidung/jacken/uebergangsjacken?gclid=CNPstouqrtQCFe4Q0wodV9sAVw&vid=33363755&quick=3587520&product_ID=PLA_3587520&ef_id=WOvszwAAAFlM3jgm:20170608131420:s&gc=CNPstouqrtQCFe4Q0wodV9sAVw">
+        PLA 1 </a></li>
+<li><a href="https://m-next.aboutyou-staging.de/maenner/bekleidung/jeans/straight-leg?gclid=COXSm4aqrtQCFVQaGwodOogCaw&vid=32980131&quick=3522761&product_ID=PLA_3522761&ef_id=WOvszwAAAFlM3jgm:20170608131409:s&gc=COXSm4aqrtQCFVQaGwodOogCaw">
+        PLA 2 </a></li>
+<li><a href="https://m-next.aboutyou-staging.de/frauen/bekleidung?color=12&sort=price_high&size=41052"> color on
+        category 1 </a></li>
+<li><a href="https://m-next.aboutyou-staging.de/maenner/bekleidung?size=41169&bi_color=38932&brand=bench-2620&price_min=30&price_max=41">
+        color on category 1 </a></li>
 <br />
 <br />
 <h3> Implement: Show bust image on ADP when clicking on Retargeting / PSM ad </h3>
 <br />
-<li><a href="https://www.aboutyou.de/p/drykorn/hose-emom-3925381?utm_source=stylight&utm_medium=psm&utm_campaign=stylight&utm_content=stylight_3925381"> ?utm_ </a></li>
-<li><a href="https://www.aboutyou.de/p/only/onlrain-cry6060-skinny-jeans-3664757?utm_source=frauenoutfit&utm_medium=psm&utm_campaign=frauenoutfit&utm_content=frauenoutfit_3664757&firstImage=bust&utm_term=52852fo80977"> ?firstImage=bust </a></li>
+<li><a href="https://www.aboutyou.de/p/drykorn/hose-emom-3925381?utm_source=stylight&utm_medium=psm&utm_campaign=stylight&utm_content=stylight_3925381">
+        ?utm_ </a></li>
+<li><a href="https://www.aboutyou.de/p/only/onlrain-cry6060-skinny-jeans-3664757?utm_source=frauenoutfit&utm_medium=psm&utm_campaign=frauenoutfit&utm_content=frauenoutfit_3664757&firstImage=bust&utm_term=52852fo80977">
+        ?firstImage=bust </a></li>
 <br />
 <br />
 <li><a href="https://app.adjust.com/qmy51ny?deeplink=aboutyouapp://appstart"> Femkes Appstart Adjust link </a></li>
 <br />
 <br />
+
+<li><a href="https://app.adjust.com/uhg77c?deep_link=aboutyouapp://frauen" target="_blank">ADJUST WITH TARGET BLANK
+        SHOULD BE AVOIDED</a></li>
