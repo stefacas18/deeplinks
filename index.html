@@ -60,6 +60,28 @@
 
     var links = [
         
+        { 'headline': 'Top 10 most important CRM APP Deeplinks'},
+        //Browse
+        { 'name': 'browse', 'link': 'browse?utm_source=content&utm_medium=push&utm_campaign=may_days_2_major_sales_M_CH_DE&utm_term=android&push=content'},
+        //Basket
+        'warenkorb?utm_source=automated&utm_medium=push&utm_campaign=abandoned_cart_DE&utm_term=ios&push=automated',
+        //ADP 1
+        'p/vans/sneaker-low-old-skool-3568827?utm_source=automated&utm_medium=push&utm_campaign=retargeting_adp_DE&utm_term=ios&push=automated',
+        //ADP 2
+        'p/brand/product-4147223?utm_source=automated&utm_medium=push&utm_campaign=sizereminder_DE&utm_term=android&push=automated',
+        //User Area
+        'account?utm_source=automated&utm_medium=push&utm_campaign=shipment_info_DE&utm_term=android&push=automated',
+        //Category F
+        'frauen/bekleidung/kleider?sort=price_low&utm_source=automated&utm_medium=push&utm_campaign=retargeting_category_DE&utm_term=ios&utm_content=A&push=automated',
+        //Category M
+        'maenner/bekleidung/jeans?utm_source=content&utm_medium=push&utm_campaign=shorts_M_AT&utm_term=android&push=content',
+        //Story 
+        's/flower-dresses-2333?utm_source=content&utm_medium=push&utm_campaign=jeans_F_PL&utm_term=android&push=content',
+        //Wishlist
+        'wunschliste?utm_source=automated&utm_medium=push&utm_campaign=wishlist_DE&utm_term=ios&push=automated',
+        //Cat + FirstProduct
+        'frauen/bekleidung/shirts?firstProductId=3602989&utm_source=content&utm_medium=push&utm_campaign=shirts_F_DE&utm_term=ios&push=content',
+             
         { 'headline': 'Story About Your Choose'},
         's/its-about-your-choice-2487',
 
@@ -340,7 +362,8 @@
         var tdSep = document.createElement('td');
         tdSep.colSpan = 4;
         // var text = document.createTextNode('A');
-        var text = document.createTextNode(links[i].headline ? links[i].headline : '/' + links[i]);
+        var linkName = links[i].name ? links[i].name : '/' + links[i];
+        var text = document.createTextNode(links[i].headline ? links[i].headline : linkName);
         tdSep.appendChild(text);
         tdSep.classList.add('deeplink');
         trSep.appendChild(tdSep);
@@ -351,11 +374,11 @@
             //     createLink(tr, 'https://m.aboutyou.' + tlds[j] + '/' + links[i], 'AYM - ' + tlds[j]);
             // }
 
-            createLink(tr, 'https://aboutyou.de' + '/' + links[i], 'AY');
-            createLink(tr, 'https://m.aboutyou.de' + '/' + links[i], 'AYM');
+            createLink(tr, 'https://aboutyou.de' + '/' + links[i].link ? links[i].link : links[i], 'AY');
+            createLink(tr, 'https://m.aboutyou.de' + '/' + links[i].link ? links[i].link : links[i], 'AYM');
 
-            createLink(tr, 'https://app.adjust.com/uhg77c?deep_link=aboutyouapp://' + links[i], 'ADJUST');
-            createLink(tr, 'aboutyouapp://' + links[i], 'APP');
+            createLink(tr, 'https://app.adjust.com/uhg77c?deep_link=aboutyouapp://' + links[i].link ? links[i].link : links[i], 'ADJUST');
+            createLink(tr, 'aboutyouapp://' + links[i].link ? links[i].link : links[i], 'APP');
         } else {
             tdSep.classList.add('headline');
         }
