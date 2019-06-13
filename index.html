@@ -362,11 +362,7 @@
             //     createLink(tr, 'https://aboutyou.' + tlds[j] + '/' + links[i], 'AY - ' + tlds[j]);
             //     createLink(tr, 'https://m.aboutyou.' + tlds[j] + '/' + links[i], 'AYM - ' + tlds[j]);
             // }
-            console.log('DEEPLINK%%%%%',links[i]);
-            console.log('Deeplink name come',links[i].deeplink ? 'Ja': 'Nein');
-            console.log('RESULT',links[i].deeplink);
             var deeplink = links[i].deeplink ? links[i].deeplink : links[i];
-            console.log('DEEPLINK after %%%%%',deeplink);
             createLink(tr, 'https://aboutyou.de' + '/' + deeplink, 'AY');
             createLink(tr, 'https://m.aboutyou.de' + '/' + deeplink, 'AYM');
 
