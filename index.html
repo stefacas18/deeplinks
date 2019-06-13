@@ -365,12 +365,12 @@
             //     createLink(tr, 'https://aboutyou.' + tlds[j] + '/' + links[i], 'AY - ' + tlds[j]);
             //     createLink(tr, 'https://m.aboutyou.' + tlds[j] + '/' + links[i], 'AYM - ' + tlds[j]);
             // }
+            var deeplink = links[i].link ? links[i].link : links[i];
+            createLink(tr, 'https://aboutyou.de' + '/' + deeplink, 'AY');
+            createLink(tr, 'https://m.aboutyou.de' + '/' + deeplink, 'AYM');
 
-            createLink(tr, 'https://aboutyou.de' + '/' + links[i].link ? links[i].link : links[i], 'AY');
-            createLink(tr, 'https://m.aboutyou.de' + '/' + links[i].link ? links[i].link : links[i], 'AYM');
-
-            createLink(tr, 'https://app.adjust.com/uhg77c?deep_link=aboutyouapp://' + links[i].link ? links[i].link : links[i], 'ADJUST');
-            createLink(tr, 'aboutyouapp://' + links[i].link ? links[i].link : links[i], 'APP');
+            createLink(tr, 'https://app.adjust.com/uhg77c?deep_link=aboutyouapp://' + deeplink, 'ADJUST');
+            createLink(tr, 'aboutyouapp://' + deeplink, 'APP');
         } else {
             tdSep.classList.add('headline');
         }
