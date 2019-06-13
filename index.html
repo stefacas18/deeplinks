@@ -73,9 +73,6 @@
         { 'name': 'Story', 'link': 's/flower-dresses-2333?utm_source=content&utm_medium=push&utm_campaign=jeans_F_PL&utm_term=android&push=content'},
         { 'name': 'Wishlist', 'link': 'wunschliste?utm_source=automated&utm_medium=push&utm_campaign=wishlist_DE&utm_term=ios&push=automated'},
         { 'name': 'Cat + FirstProduct', 'link': 'frauen/bekleidung/shirts?firstProductId=3602989&utm_source=content&utm_medium=push&utm_campaign=shirts_F_DE&utm_term=ios&push=content'},
-             
-        { 'headline': 'Story About Your Choose'},
-        's/its-about-your-choice-2487',
 
         { 'headline': 'category + filters' },
         'frauen',
@@ -365,6 +362,7 @@
             //     createLink(tr, 'https://aboutyou.' + tlds[j] + '/' + links[i], 'AY - ' + tlds[j]);
             //     createLink(tr, 'https://m.aboutyou.' + tlds[j] + '/' + links[i], 'AYM - ' + tlds[j]);
             // }
+            console.log('DEEPLINK%%%%%',links[i]);
             var deeplink = links[i].link ? links[i].link : links[i];
             createLink(tr, 'https://aboutyou.de' + '/' + deeplink, 'AY');
             createLink(tr, 'https://m.aboutyou.de' + '/' + deeplink, 'AYM');
