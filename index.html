@@ -363,7 +363,9 @@
             //     createLink(tr, 'https://m.aboutyou.' + tlds[j] + '/' + links[i], 'AYM - ' + tlds[j]);
             // }
             console.log('DEEPLINK%%%%%',links[i]);
+            console.log('Deeplink name come',links[i].link ? 'Ja': 'Nein');
             var deeplink = links[i].link ? links[i].link : links[i];
+            console.log('DEEPLINK after %%%%%',deeplink);
             createLink(tr, 'https://aboutyou.de' + '/' + deeplink, 'AY');
             createLink(tr, 'https://m.aboutyou.de' + '/' + deeplink, 'AYM');
 
