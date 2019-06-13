@@ -364,6 +364,7 @@
             // }
             console.log('DEEPLINK%%%%%',links[i]);
             console.log('Deeplink name come',links[i].link ? 'Ja': 'Nein');
+            console.log('RESULT',links[i].link);
             var deeplink = links[i].link ? links[i].link : links[i];
             console.log('DEEPLINK after %%%%%',deeplink);
             createLink(tr, 'https://aboutyou.de' + '/' + deeplink, 'AY');
