@@ -391,6 +391,7 @@
         } else (links[i].headline) {
             tdSep.classList.add('headline');
         } else (links[i].planeDeeplink) {
+            var deeplink = links[i].deeplink ? links[i].deeplink : links[i];
             createLink(tr, deeplink, 'Plane Deeplink');
         }
 
