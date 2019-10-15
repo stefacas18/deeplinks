@@ -383,16 +383,17 @@
             //     createLink(tr, 'https://m.aboutyou.' + tlds[j] + '/' + links[i], 'AYM - ' + tlds[j]);
             // }
             var deeplink = links[i].deeplink ? links[i].deeplink : links[i];
+            if (links[i].planeDeeplink) {
+                createLink(tr, deeplink, 'Plane Deeplink');
+            } else {
             createLink(tr, 'https://aboutyou.de' + '/' + deeplink, 'AY');
             createLink(tr, 'https://m.aboutyou.de' + '/' + deeplink, 'AYM');
 
             createLink(tr, 'https://app.adjust.com/uhg77c?deep_link=aboutyouapp://' + deeplink, 'ADJUST');
             createLink(tr, 'aboutyouapp://' + deeplink, 'APP');
-        } else if (links[i].headline) {
+            }
+        } else {
             tdSep.classList.add('headline');
-        } else if (links[i].planeDeeplink) {
-            var deeplink = links[i].deeplink ? links[i].deeplink : links[i];
-            createLink(tr, deeplink, 'Plane Deeplink');
         }
 
         listHolder.appendChild(trSep);
