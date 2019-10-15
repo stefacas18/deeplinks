@@ -357,10 +357,10 @@
         { 'name': 'story ID 3181', 'deeplink': 's/dua-lipa-x-pepe-jeans-3181'},
         
         { 'headline': 'Handle Adjust Deeplinks Fultter'},
-        { 'planeDeeplink': '', 'deeplink': 'https://app.adjust.com/ck8trh?deep_link=aboutyouapp://frauen/bekleidung'},
-        { 'planeDeeplink': '', 'deeplink': 'aboutyouapp://frauen/bekleidung?adjust_tracker=ck8trh'},
-        { 'planeDeeplink': '', 'deeplink': 'https://mwpu.adj.st/frauen/bekleidung?adjust_t=ck8trh'},
-        { 'planeDeeplink': '', 'deeplink': 'https://mwpu.adj.st/frauen/bekleidung?adjust_t=ck8trh&adjust_deeplink=aboutyouapp%3A%2F%2Ffrauen%2Fbekleidung'},
+        { 'plane': 'a', 'deeplink': 'https://app.adjust.com/ck8trh?deep_link=aboutyouapp://frauen/bekleidung'},
+        { 'plane': 'a', 'deeplink': 'aboutyouapp://frauen/bekleidung?adjust_tracker=ck8trh'},
+        { 'plane': 'a', 'deeplink': 'https://mwpu.adj.st/frauen/bekleidung?adjust_t=ck8trh'},
+        { 'plane': 'a', 'deeplink': 'https://mwpu.adj.st/frauen/bekleidung?adjust_t=ck8trh&adjust_deeplink=aboutyouapp%3A%2F%2Ffrauen%2Fbekleidung'},
 
     ];
     var tlds = ['de', 'nl'];
@@ -378,12 +378,8 @@
         trSep.appendChild(tdSep);
 
         if (!links[i].headline) {
-            // for (var j = 0; j < tlds.length; j++) {
-            //     createLink(tr, 'https://aboutyou.' + tlds[j] + '/' + links[i], 'AY - ' + tlds[j]);
-            //     createLink(tr, 'https://m.aboutyou.' + tlds[j] + '/' + links[i], 'AYM - ' + tlds[j]);
-            // }
             var deeplink = links[i].deeplink ? links[i].deeplink : links[i];
-            if (links[i].planeDeeplink) {
+            if (links[i].plane) {
                 createLink(tr, deeplink, 'Plane Deeplink');
             } else {
                 createLink(tr, 'https://aboutyou.de' + '/' + deeplink, 'AY');
@@ -398,6 +394,5 @@
 
         listHolder.appendChild(trSep);
         listHolder.appendChild(tr);
-        // createHr();
     }
 </script>
