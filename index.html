@@ -355,6 +355,12 @@
         { 'name': 'Story ID 2532', 'deeplink': 's/wedding-guest-2532'},
         { 'name': 'story ID 2533', 'deeplink': 's/grosse-bruste-2533'},
         { 'name': 'story ID 3181', 'deeplink': 's/dua-lipa-x-pepe-jeans-3181'},
+        
+        { 'headline': 'Handle Adjust Deeplinks Fultter'},
+        { 'planeDeeplink': '', 'deeplink': 'https://app.adjust.com/ck8trh?deep_link=aboutyouapp://frauen/bekleidung'},
+        { 'planeDeeplink': '', 'deeplink': 'aboutyouapp://frauen/bekleidung?adjust_tracker=ck8trh'},
+        { 'planeDeeplink': '', 'deeplink': 'https://mwpu.adj.st/frauen/bekleidung?adjust_t=ck8trh'},
+        { 'planeDeeplink': '', 'deeplink': 'https://mwpu.adj.st/frauen/bekleidung?adjust_t=ck8trh&adjust_deeplink=aboutyouapp%3A%2F%2Ffrauen%2Fbekleidung'},
 
     ];
     var tlds = ['de', 'nl'];
@@ -382,8 +388,10 @@
 
             createLink(tr, 'https://app.adjust.com/uhg77c?deep_link=aboutyouapp://' + deeplink, 'ADJUST');
             createLink(tr, 'aboutyouapp://' + deeplink, 'APP');
-        } else {
+        } else (links[i].headline) {
             tdSep.classList.add('headline');
+        } else (links[i].planeDeeplink) {
+            createLink(tr, deeplink, 'Plane Deeplink');
         }
 
         listHolder.appendChild(trSep);
