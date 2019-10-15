@@ -388,9 +388,9 @@
 
             createLink(tr, 'https://app.adjust.com/uhg77c?deep_link=aboutyouapp://' + deeplink, 'ADJUST');
             createLink(tr, 'aboutyouapp://' + deeplink, 'APP');
-        } else (links[i].headline) {
+        } else if (links[i].headline) {
             tdSep.classList.add('headline');
-        } else (links[i].planeDeeplink) {
+        } else if (links[i].planeDeeplink) {
             var deeplink = links[i].deeplink ? links[i].deeplink : links[i];
             createLink(tr, deeplink, 'Plane Deeplink');
         }
